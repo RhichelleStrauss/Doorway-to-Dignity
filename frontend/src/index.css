@@ -1,114 +1,100 @@
 @import "tailwindcss";
 
+@plugin "daisyui";
 
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@plugin "daisyui/theme" {
+  name: "dignity";
+  default: true;
+  --color-primary: #13c0d1;          
+  --color-primary-content: #084a50;  
+  --color-base-100: #e9e3d5;        
+  --color-base-content: #646976;     
+  --color-error: #b3261e;
+}
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-sans: "Poppins", system-ui, "Segoe UI", Roboto, sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  /* Brand colours (Figma: Brand collection) */
+  --color-teal-100: #d9f4f7;   /* tags/chips, selected rows (#e6f7f9) */
+  --color-teal-400: #55dce9;   /* lighter teal accent */
+  --color-teal-500: #13c0d1;   /* primary buttons, icon circles, progress bars */
+  --color-teal-700: #02616b;   /* links, outlines, active tab, nav bar (50%) */
+  --color-teal-800: #084a50;   /* headings, main text, teal bands, footer */
+  --color-cream: #fdf3de;      /* text on teal and on photos */
+  --color-beige: #e9e3d5;      /* page background, dividers */
+  --color-stat-beige: #d0c5ae; /* stat tiles */
+  --color-card: #f8f6f2d9;     /* cards and panels (85%) */
+  --color-row: #fffafa;        /* list rows inside cards */
+  --color-grey: #646976;       /* body text, placeholders, small print */
+  --color-error: #b3261e;      /* log out, delete, cancel */
+
+  /* Calendar dots */
+  --color-cal-full: #ff6060;
+  --color-cal-needed: #06c76f;
+  --color-cal-passed: #878787;
+
+  /* Type roles: use as text-hero, text-body, etc. */
+  --text-hero: 72px;
+  --text-hero--line-height: 80px;
+  --text-hero--font-weight: 700;
+  --text-home-section: 64px;
+  --text-home-section--line-height: 72px;
+  --text-home-section--font-weight: 700;
+  --text-page-title: 48px;
+  --text-page-title--line-height: 58px;
+  --text-page-title--font-weight: 700;
+  --text-form-heading: 40px;
+  --text-form-heading--line-height: 48px;
+  --text-form-heading--font-weight: 700;
+  --text-home-card: 36px;
+  --text-home-card--line-height: 44px;
+  --text-home-card--font-weight: 700;
+  --text-app-section: 32px;
+  --text-app-section--line-height: 38px;
+  --text-app-section--font-weight: 700;
+  --text-profile-name: 28px;
+  --text-profile-name--line-height: 34px;
+  --text-profile-name--font-weight: 700;
+  --text-app-card: 24px;
+  --text-app-card--line-height: 31px;
+  --text-app-card--font-weight: 700;
+  --text-list-title: 20px;
+  --text-list-title--line-height: 26px;
+  --text-list-title--font-weight: 700;
+  --text-nav: 20px;
+  --text-nav--line-height: 28px;
+  --text-nav--font-weight: 600;
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 32px;
+  --text-body-lg--font-weight: 400;
+  --text-button: 18px;
+  --text-button--line-height: 27px;
+  --text-button--font-weight: 600;
+  --text-label: 16px;
+  --text-label--line-height: 24px;
+  --text-label--font-weight: 500;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-body--font-weight: 400;
+  --text-small: 14px;
+  --text-small--line-height: 20px;
+  --text-small--font-weight: 400;
+  --text-chip: 13px;
+  --text-chip--line-height: 20px;
+  --text-chip--font-weight: 600;
+  --text-caps: 12px;
+  --text-caps--line-height: 16px;
+  --text-caps--font-weight: 600;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-grey);
+    background: var(--color-beige);
+    -webkit-font-smoothing: antialiased;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }

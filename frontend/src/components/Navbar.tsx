@@ -1,38 +1,43 @@
 import { NavLink } from 'react-router-dom'
+import logo from '../assets/figma/logo.png'
 
 
-function Navbar () {
+const links = [
+  { label: 'Home', to: '/' },
+  { label: 'LogIn', to: '/login' },
+  { label: 'Contact us', to: '/contact' },
+  { label: 'Dashboard', to: '/VolunteerDashboard'}
+]
 
-    <NavLink to={link.to} className={({ isActive }) => (isActive ? 'text-teal-500' : 'text-beige')}>
-  {link.label}
-</NavLink>
+function Navbar() {
+  return (
+    <div className="navbar bg-base-100 shadow-sm">
 
-    return(
-            <div className="navbar bg-base-100 shadow-sm">
-                <div className="navbar bg-base-100 shadow-sm">
-  <div className="flex-1">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="flex-none">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Link</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="menu menu-horizontal px-1">
-            
-  <li><Link to="/">Home</Link></li>
-  <li><Link to="/faq">FAQ</Link></li>
-  <li><Link to="/contact">Contact us</Link></li>
-</ul>
-
-        </details>
-      </li>
-    </ul>
-  </div>
+      <div className="flex-1">
+  <NavLink to="/" className="flex items-center gap-3 text-xl font-semibold">
+    <img src={logo} alt="" className="size-12" />
+    Doorway To Dignity
+  </NavLink>
 </div>
-</div>
-    )
+
+
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          {links.map((link) => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) => (isActive ? 'text-teal-500' : 'text-teal-800')}
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+          
+        </ul>
+      </div>
+    </div>
+  )
 }
 
 export default Navbar

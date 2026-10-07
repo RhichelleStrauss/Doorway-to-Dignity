@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/figma/logo.png";
 import userIcon from "../assets/icons/user.svg";
+import menuIcon from "../assets/icons/menu.svg";
+import closeIcon from "../assets/icons/x-circle.svg";
+import Icon from "./Icon";
 
 //all the links on the navbar for now
 //dash fubky??
@@ -18,11 +22,14 @@ const links = [
 //reusable 
 
 
-function closeMenu() {
-  (document.activeElement as HTMLElement | null)?.blur();
-}
-
 function Navbar() {
+
+    const [open, setOpen] = useState(false);
+
+useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
+
   return (
     <div className="navbar h-[72px] border-b-[3px] border-teal-500 bg-teal-700 px-6 shadow-[0_6px_16.9px_rgba(0,0,0,0.25)] md:px-[72px]">
       <div className="flex-1">
@@ -70,48 +77,85 @@ function Navbar() {
             `block transition-colors hover:text-teal-500 ${isActive ? "text-teal-500" : "text-beige"}`
           }
         >
-          <span
-            aria-hidden="true"
-            className="block size-7 bg-current"
-            style={{
-              mask: `url("${userIcon}") center / contain no-repeat`,
-              WebkitMask: `url("${userIcon}") center / contain no-repeat`,
-            }}
-          />
+          <Icon src={userIcon} className="size-7" />
         </NavLink>
 
-        <div className="dropdown dropdown-end lg:hidden">
-          <div
-            tabIndex={0}
-            role="button"
-            aria-label="Open menu"
-            className="btn btn-ghost btn-square text-beige hover:bg-teal-800"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+         
+        <button
+          type="button"
+          aria-label="Open menu"
+          aria-expanded={open}
+          onClick={() => setOpen(true)}
+          className="btn btn-ghost btn-square text-beige hover:bg-teal-800 lg:hidden"
+        >
+          <Icon src={menuIcon} className="size-7" />
+        </button>
+
+      </div>
+            
+      {open && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-teal-800 lg:hidden">
+         
+          <div className="flex items-center justify-between border-b border-teal-700 px-4 py-4">
+            <NavLink to="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
+              <img src={logo} alt="" className="size-12" />
+              <span className="text-[18px] font-semibold text-cream">Doorway To Dignity</span>
+            </NavLink>
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="grid size-11 place-items-center text-cream transition-colors hover:text-teal-500"
+            >
+              <Icon src={closeIcon} className="size-8" />
+            </button>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content z-30 mt-3 w-56 rounded-box border border-teal-500 bg-teal-700 p-2 shadow-lg [--menu-active-bg:transparent] [--menu-active-fg:var(--color-teal-500)]"
-          >
+
+          
+          <ul className="flex flex-col gap-2 px-4 py-6">
             {links.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
                   end={link.to === "/"}
-                  onClick={closeMenu}
+                  onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `text-[15px] font-semibold uppercase ${isActive ? "text-teal-500" : "text-beige"}`
+                    `relative flex items-center justify-between rounded-[14px] px-5 py-4 text-[20px] font-semibold uppercase tracking-wide text-cream ${
+                      isActive
+                        ? "bg-teal-700 before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-teal-500"
+                        : ""
+                    }`
                   }
                 >
                   {link.label}
+                  <span aria-hidden="true" className="text-beige/70">›</span>
                 </NavLink>
               </li>
             ))}
           </ul>
+
+         
+          <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
+            <NavLink
+              to="/login"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-[17px] font-semibold text-cream"
+            >
+              <Icon src={userIcon} className="size-6" />
+              <span className="flex-1">My account</span>
+              <span aria-hidden="true">›</span>
+            </NavLink>
+            <NavLink
+              to="/signup"
+              onClick={() => setOpen(false)}
+              className="rounded-[14px] bg-teal-500 py-4 text-center text-[17px] font-semibold text-teal-800"
+            >
+              Become a volunteer
+            </NavLink>
+          </div>
         </div>
-      </div>
+      )}
+
     </div>
   );
 }

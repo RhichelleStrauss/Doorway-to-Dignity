@@ -1,0 +1,29 @@
+//typescript101 with rhi ＼（〇_ｏ）／
+//props: inputs given to component --- buttton variant="outline"> leanrmore </button> variant "outline" is one prop
+//variant is attribtue, known as prop, learn more is between tags so its content 
+//children:string content should be plaiin text, if image is inserted react no likey because not string
+//type, prop name: what type 
+//
+
+type ButtonProps = {
+  children: string;
+  variant?: "primary" | "outline";
+};
+
+const variants = {
+    primary: "bg-teal-500 text-teal-800 hover:bg-teal-400",
+    outline: "border border-cream text-cream hover:bg-cream/15",
+}
+
+function Button({ children, variant = "primary" }: ButtonProps) {
+  return (
+     <button
+      className={`inline-flex h-[42px] items-center justify-center rounded-[14px] px-8 text-[15px] font-semibold transition-colors ${variants[variant]}`}
+    >
+      {children} 
+      {/* children text in button, spot where text goes */}
+    </button>
+  );
+}
+
+export default Button;

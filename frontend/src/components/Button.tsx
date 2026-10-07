@@ -5,6 +5,9 @@
 //type, prop name: what type 
 //
 
+import { Link } from "react-router-dom";
+
+
 type ButtonProps = {
   children: string;
   variant?: "primary" | "outline" | "danger";
@@ -12,7 +15,7 @@ type ButtonProps = {
 };
 
 const variants = {
-    primary: "bg-teal-500 text-teal-800 hover:bg-teal-400",
+    primary: "bg-primary-topaz-blue-500 text-topaz-blue-800 hover:bg-topaz-blue-300",
     outline: "border border-cream text-cream hover:bg-cream/15",
     danger: "bg-error text-white hover:bg-error/90",
 }

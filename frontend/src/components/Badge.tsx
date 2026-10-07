@@ -8,7 +8,7 @@ type BadgeProps = {
 const tones = {
 
     dark: "border border-cream/45 bg-cream/15 text-cream",
-    light: "bg-teal-100/85 text-teal-800",
+    light: "bg-topaz-blue-100/85 text-topaz-blue-800",
 
 };
 

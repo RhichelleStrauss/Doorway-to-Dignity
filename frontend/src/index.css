@@ -21,17 +21,69 @@ as themes and how to import it so i got all the colours creatde in figma via thi
 /* genuinely wouldve driven myself off a bridge if i manually did this */
  
 /* Brand colours (Figma: Brand collection) */
-  --color-teal-100: #d9f4f7;   /* tags/chips, selected rows (#e6f7f9) */
-  --color-teal-400: #55dce9;   /* lighter teal accent */
-  --color-teal-500: #13c0d1;   /* primary buttons, icon circles, progress bars */
-  --color-teal-700: #02616b;   /* links, outlines, active tab, nav bar (50%) */
-  --color-teal-800: #084a50;   /* headings, main text, teal bands, footer */
+  /* Primary: Topaz Blue */
+  --color-primary-topaz-blue-500: #13c0d1;
+  --color-topaz-blue-900: #083439;
+  --color-topaz-blue-800: #084a50;
+  --color-topaz-blue-700: #02616b;
+  --color-topaz-blue-600: #0f8d99;
+  --color-topaz-blue-400: #55dce9;
+  --color-topaz-blue-300: #88eef8;
+  --color-topaz-blue-200: #b8f9ff;
+  --color-topaz-blue-100: #daf6f9;
+  --color-topaz-blue-more-than-900: #052124;
+
+  /* Secondary: Soft Amber */
+  --color-primary-soft-amber-500: #d0c5ae;
+  --color-soft-amber-900: #49402e;
+  --color-soft-amber-800: #675d47;
+  --color-soft-amber-700: #958564;
+  --color-soft-amber-600: #978a70;
+  --color-soft-amber-400: #d8d0bd;
+  --color-soft-amber-300: #e0d7c5;
+  --color-soft-amber-200: #dfd9cc;
+  --color-soft-amber-100: #e9e3d5;
+
+  /* Tertiary: Green Teal (spelled "Teritary" in Figma) */
+  --color-primary-green-teal-500: #06c76f;
+  --color-green-teal-900: #025a32;
+  --color-green-teal-800: #026f3d;
+  --color-green-teal-700: #04864b;
+  --color-green-teal-600: #028f4f;
+  --color-green-teal-400: #4defa5;
+  --color-green-teal-300: #82ecbc;
+  --color-green-teal-200: #9cf0ca;
+  --color-green-teal-100: #c8f6e1;
+
+  /* Neutrals: Gunmetal Grey */
+  --color-primary-gunmetal-grey-500: #2f3440;
+  --color-gunmetal-grey-900: #000000;
+  --color-gunmetal-grey-800: #0c121f;
+  --color-gunmetal-grey-700: #1c2230;
+  --color-gunmetal-grey-600: #222732;
+  --color-gunmetal-grey-400: #646976;
+  --color-gunmetal-grey-300: #868a94;
+  --color-gunmetal-grey-200: #c7c8ca;
+  --color-gunmetal-grey-100: #ffffff;
+
+  /* Systematic */
+  --color-error-background: #e7b5b5;
+  --color-error-text: #2e0303;
+  --color-error-frame: #910000;
+  --color-success-background: #d5ffcd;
+  --color-success-text: #001902;
+  --color-success-frame: #028208;
+  --color-warning-background: #ffe5c1;
+  --color-warning-text: #291400;
+  --color-warning-frame: #f07400;
+
+  /* Other styles */
+  --color-kinda-white: #fffafa;
+
+  /* Not Figma colour styles (from the brand spec / variables) */
   --color-cream: #fdf3de;      /* text on teal and on photos */
-  --color-beige: #e9e3d5;      /* page background, dividers */
-  --color-stat-beige: #d0c5ae; /* stat tiles */
   --color-card: #f8f6f2d9;     /* cards and panels (85%) */
   --color-row: #fffafa;        /* list rows inside cards */
-  --color-grey: #646976;       /* body text, placeholders, small print */
   --color-error: #b3261e;      /* log out, delete, cancel */
 
   /* Calendar dots */
@@ -97,8 +149,8 @@ as themes and how to import it so i got all the colours creatde in figma via thi
   body {
     margin: 0;
     font-family: var(--font-sans);
-    color: var(--color-grey);
-    background: var(--color-beige);
+    color: var(--color-gunmetal-grey-400);
+    background: var(--color-soft-amber-100);
     -webkit-font-smoothing: antialiased;
   }
 }

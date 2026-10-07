@@ -1,15 +1,15 @@
-import Button from "../components/Button"
-import Badge from "../components/Badge"
+
+import Hero from "../components/Hero"
 
 function Home() {
   return <main>
 
-   <Button>Become a volunteer</Button>
-
+  
    <div>
-   <Badge>YAAAAAA</Badge>
-   </div>
+  <Hero></Hero>
    
+   </div>
+
   </main>
 }
 

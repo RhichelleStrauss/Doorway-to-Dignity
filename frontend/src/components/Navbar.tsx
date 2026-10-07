@@ -31,11 +31,11 @@ useEffect(() => {
   }, [open]);
 
   return (
-    <div className="navbar h-[72px] border-b-[3px] border-teal-500 bg-teal-700 px-6 shadow-[0_6px_16.9px_rgba(0,0,0,0.25)] md:px-[72px]">
+    <div className="navbar h-[72px] border-b-[3px] border-primary-topaz-blue-500 bg-topaz-blue-700 px-6 shadow-[0_6px_16.9px_rgba(0,0,0,0.25)] md:px-[72px]">
       <div className="flex-1">
         <NavLink to="/" className="flex items-center gap-3 md:gap-8">
           <img src={logo} alt="" className="size-[52px]" />
-          <span className="text-[16px] font-semibold text-teal-400 md:text-[18px]">
+          <span className="text-[16px] font-semibold text-topaz-blue-400 md:text-[18px]">
             Doorway To Dignity
           </span>
         </NavLink>
@@ -57,10 +57,10 @@ useEffect(() => {
                 //tells navlink only to be active at exact match
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `block border-b pb-1 text-[15px]/[20px] font-semibold uppercase transition-colors hover:border-teal-500 hover:text-teal-500 ${
+                  `block border-b pb-1 text-[15px]/[20px] font-semibold uppercase transition-colors hover:border-primary-topaz-blue-500 hover:text-primary-topaz-blue-500 ${
                     isActive
-                      ? "border-teal-500 text-teal-500"
-                      : "border-beige text-beige"
+                      ? "border-primary-topaz-blue-500 text-primary-topaz-blue-500"
+                      : "border-soft-amber-100 text-soft-amber-100"
                   }`
                 }
               >
@@ -74,7 +74,7 @@ useEffect(() => {
           to="/login"
           aria-label="Log in"
           className={({ isActive }) =>
-            `block transition-colors hover:text-teal-500 ${isActive ? "text-teal-500" : "text-beige"}`
+            `block transition-colors hover:text-primary-topaz-blue-500 ${isActive ? "text-primary-topaz-blue-500" : "text-soft-amber-100"}`
           }
         >
           <Icon src={userIcon} className="size-7" />
@@ -86,7 +86,7 @@ useEffect(() => {
           aria-label="Open menu"
           aria-expanded={open}
           onClick={() => setOpen(true)}
-          className="btn btn-ghost btn-square text-beige hover:bg-teal-800 lg:hidden"
+          className="btn btn-ghost btn-square text-soft-amber-100 hover:bg-topaz-blue-800 lg:hidden"
         >
           <Icon src={menuIcon} className="size-7" />
         </button>
@@ -94,9 +94,9 @@ useEffect(() => {
       </div>
             
       {open && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-teal-800 lg:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-topaz-blue-800 lg:hidden">
          
-          <div className="flex items-center justify-between border-b border-teal-700 px-4 py-4">
+          <div className="flex items-center justify-between border-b border-topaz-blue-700 px-4 py-4">
             <NavLink to="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
               <img src={logo} alt="" className="size-12" />
               <span className="text-[18px] font-semibold text-cream">Doorway To Dignity</span>
@@ -105,7 +105,7 @@ useEffect(() => {
               type="button"
               aria-label="Close menu"
               onClick={() => setOpen(false)}
-              className="grid size-11 place-items-center text-cream transition-colors hover:text-teal-500"
+              className="grid size-11 place-items-center text-cream transition-colors hover:text-primary-topaz-blue-500"
             >
               <Icon src={closeIcon} className="size-8" />
             </button>
@@ -122,13 +122,13 @@ useEffect(() => {
                   className={({ isActive }) =>
                     `relative flex items-center justify-between rounded-[14px] px-5 py-4 text-[20px] font-semibold uppercase tracking-wide text-cream ${
                       isActive
-                        ? "bg-teal-700 before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-teal-500"
+                        ? "bg-topaz-blue-700 before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-primary-topaz-blue-500"
                         : ""
                     }`
                   }
                 >
                   {link.label}
-                  <span aria-hidden="true" className="text-beige/70">›</span>
+                  <span aria-hidden="true" className="text-soft-amber-100/70">›</span>
                 </NavLink>
               </li>
             ))}
@@ -148,7 +148,7 @@ useEffect(() => {
             <NavLink
               to="/signup"
               onClick={() => setOpen(false)}
-              className="rounded-[14px] bg-teal-500 py-4 text-center text-[17px] font-semibold text-teal-800"
+              className="rounded-[14px] bg-primary-topaz-blue-500 py-4 text-center text-[17px] font-semibold text-topaz-blue-800"
             >
               Become a volunteer
             </NavLink>

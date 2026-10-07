@@ -7,17 +7,20 @@
 
 type ButtonProps = {
   children: string;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "danger";
+  type?: "button" | "submit" | "reset";
 };
 
 const variants = {
     primary: "bg-teal-500 text-teal-800 hover:bg-teal-400",
     outline: "border border-cream text-cream hover:bg-cream/15",
+    danger: "bg-error text-white hover:bg-error/90",
 }
 
-function Button({ children, variant = "primary" }: ButtonProps) {
+function Button({ children, variant = "primary", type = "button" }: ButtonProps) {
   return (
      <button
+     type={type}
       className={`inline-flex h-[42px] items-center justify-center rounded-[14px] px-8 text-[15px] font-semibold transition-colors ${variants[variant]}`}
     >
       {children} 

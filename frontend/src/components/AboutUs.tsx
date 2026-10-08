@@ -1,7 +1,7 @@
 import aboutImage from "../assets/images/PlaceholderVolunteerImage.jpeg";
 import Background from "./Background";
 import Badge from "./Badge";
-
+import Card from "./Card";
 
 const cards = [
   {

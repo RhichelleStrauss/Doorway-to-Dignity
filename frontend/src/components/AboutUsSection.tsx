@@ -1,5 +1,4 @@
 import aboutImage from "../assets/images/PlaceholderVolunteerImage.jpeg";
-import Background from "./Background";
 import Badge from "./Badge";
 import Card from "./Card";
 
@@ -14,10 +13,9 @@ const cards = [
   },
 ];
 
-function AboutUs() {
+function AboutUsSection() {
   return (
     <>
-      <Background tone="light">
         <section className="flex flex-col gap-6 px-6 py-14 md:px-12 lg:px-24">
           <div className="flex flex-col items-start gap-3">
             <Badge tone="light">About Us</Badge>
@@ -50,9 +48,8 @@ function AboutUs() {
             </div>
           </div>
         </section>
-      </Background>
     </>
   );
 }
 
-export default AboutUs;
+export default AboutUsSection;

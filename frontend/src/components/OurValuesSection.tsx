@@ -1,5 +1,3 @@
-import aboutImage from "../assets/images/PlaceholderVolunteerImage.jpeg";
-import Background from "./Background";
 import Badge from "./Badge";
 import Card from "./Card";
 import Icon from "./Icon";
@@ -27,11 +25,10 @@ const values = [
 ];
 
 
-function OurValues() {
+function OurValuesSection() {
   return (
     <>
-      <Background tone="dark" className="opacity-[45]">
-        <section className="flex flex-col gap-6 px-6 py-14 md:px-12 lg:px-24">
+        <section className="flex flex-col gap-6 bg-topaz-blue-800/85 px-6 py-14 md:px-12 lg:px-24">
           <div className="flex flex-col items-start gap-3">
             <Badge tone="dark">WHAT WE STAND FOR</Badge>
 
@@ -42,7 +39,7 @@ function OurValues() {
 
           <div className="flex flex-col gap-6 lg:flex-row">
           {values.map((value) => (
-            <Card key={value.title} className="flex flex-1 flex-col items-start gap-5 p-8 lg:p-9">
+            <Card key={value.title} variant="solid" className="flex flex-1 flex-col items-start gap-5 p-8 lg:p-9">
               <div className="grid size-12 place-items-center rounded-full bg-primary-topaz-blue-500 text-soft-amber-100">
                 <Icon src={value.icon} className="size-[26px]" />
               </div>
@@ -58,9 +55,8 @@ function OurValues() {
 
 
         </section>
-      </Background>
     </>
   );
 }
 
-export default OurValues;
+export default OurValuesSection;

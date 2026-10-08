@@ -1,7 +1,7 @@
-import aboutImage from "../assets/images/PlaceholderVolunteerImage.jpeg"
+import aboutImage from "../assets/images/PlaceholderVolunteerImage.jpeg";
 import Background from "./Background";
 import Badge from "./Badge";
-import Button from "./Button";
+
 
 const cards = [
   {
@@ -14,33 +14,45 @@ const cards = [
   },
 ];
 
-
 function AboutUs() {
-
-return(
+  return (
     <>
+      <Background tone="light">
+        <section className="flex flex-col gap-6 px-6 py-14 md:px-12 lg:px-24">
+          <div className="flex flex-col items-start gap-3">
+            <Badge tone="light">About Us</Badge>
 
-   
-        <div className="flex h-full flex-col items-start justify-center gap-6 px-6 md:px-12 lg:px-24">
-  <Badge>About Us</Badge>
-  <h1 className="max-w-[810px] text-[34px]/[42px] font-bold text-topaz-blue-700 lg:text-[57px]/[65px]">
-    Who we are
-  </h1>
-  <img className="h-1/2" src={aboutImage}></img>
-  <div className="flex flex-wrap gap-2">
- <Button to="/signup">Become a volunteer</Button>
-<Button to="/faq" variant="outline">Learn more</Button>
+            <h2 className="text-[32px]/[40px] font-bold text-topaz-blue-800 md:text-[44px]/[52px] lg:text-[48px]/[56px]">
+              Who we are
+            </h2>
+          </div>
 
-  </div>
-</div>
+          <div className="flex flex-col gap-6 lg:flex-row">
+            <img
+              className="h-[260px] w-full rounded-[14px] object-cover lg:h-[416px] lg:w-[52%] lg:shrink-0"
+              src={aboutImage}
+            />
 
-  
-    
+            <div className="flex flex-1 flex-col gap-6">
+              {cards.map((card) => (
+                <div
+                  key={card.title}
+                  className="flex flex-1 flex-col justify-center gap-3 rounded-[14px] bg-card p-8 shadow-[0_12px_40px_rgba(8,74,79,0.18)] lg:p-9"
+                >
+                  <h3 className="text-[22px]/[30px] font-bold text-topaz-blue-800 lg:text-[27px]/[33px]">
+                    {card.title}
+                  </h3>
+                  <p className="text-[15px]/[24px] text-gunmetal-grey-400 lg:text-[16px]/[26px]">
+                    {card.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Background>
     </>
-    
-
-);
-
+  );
 }
 
 export default AboutUs;

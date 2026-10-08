@@ -12,6 +12,7 @@ type ButtonProps = {
   children: string;
   variant?: "primary" | "outline" | "danger";
   type?: "button" | "submit" | "reset";
+  to?: string;
 };
 
 const variants = {
@@ -20,16 +21,28 @@ const variants = {
     danger: "bg-error text-white hover:bg-error/90",
 }
 
-function Button({ children, variant = "primary", type = "button" }: ButtonProps) {
-  return (
+function Button({ children, variant = "primary", type = "button", to }: ButtonProps) {
+    const className = `inline-flex h-[42px] items-center justify-center rounded-[14px] px-8 text-[15px] font-semibold transition-colors ${variants[variant]}`;
+
+  if (to) {                                     
+    return (
+      <Link to={to} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (                                      
      <button
      type={type}
-      className={`inline-flex h-[42px] items-center justify-center rounded-[14px] px-8 text-[15px] font-semibold transition-colors ${variants[variant]}`}
+      className={className}                  
     >
       {children} 
       {/* children text in button, spot where text goes */}
     </button>
   );
 }
+
+ 
 
 export default Button;

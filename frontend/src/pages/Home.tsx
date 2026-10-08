@@ -1,5 +1,6 @@
 
 import Hero from "../components/Hero"
+import AboutUs from "../components/AboutUs"
 
 function Home() {
   return <main>
@@ -7,7 +8,7 @@ function Home() {
   
    <div>
   <Hero></Hero>
-   
+   <AboutUs></AboutUs>
    </div>
 
   </main>

@@ -27,23 +27,21 @@ function AboutUsSection() {
 
           <div className="flex flex-col gap-6 lg:flex-row">
             <img
+              alt=""
               className="h-[260px] w-full rounded-[14px] object-cover lg:h-[416px] lg:w-[52%] lg:shrink-0"
               src={aboutImage}
             />
 
             <div className="flex flex-1 flex-col gap-6">
               {cards.map((card) => (
-                <div
-                  key={card.title}
-                  className="flex flex-1 flex-col justify-center gap-3 rounded-[14px] bg-card p-8 shadow-[0_12px_40px_rgba(8,74,79,0.18)] lg:p-9"
-                >
+                <Card key={card.title} className="flex flex-1 flex-col justify-center gap-3 p-8 lg:p-9">
                   <h3 className="text-[22px]/[30px] font-bold text-topaz-blue-800 lg:text-[27px]/[33px]">
                     {card.title}
                   </h3>
                   <p className="text-[15px]/[24px] text-gunmetal-grey-400 lg:text-[16px]/[26px]">
                     {card.text}
                   </p>
-                </div>
+                </Card>
               ))}
             </div>
           </div>

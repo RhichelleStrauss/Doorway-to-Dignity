@@ -6,13 +6,16 @@ import PageBackground from "../components/PageBackground"
 import InitiativesSection from "../components/InitiativesSection"
 import CTA from "../components/CTA"
 import StoriesSection from "../components/StoriesSection"
-
+import QuoteSection from "../components/QuoteSection"
+import Footer from "../components/Footer"
+import StudentNotice from "../components/StudentNotice"
 
 function Home() {
   return <main>
 
   
    <div>
+  <StudentNotice></StudentNotice>
   <Hero></Hero>
 
    <PageBackground>
@@ -20,8 +23,10 @@ function Home() {
      <OurValuesSection></OurValuesSection>
      <InitiativesSection></InitiativesSection>
      <CTA></CTA>
+     <QuoteSection></QuoteSection>
      <StoriesSection></StoriesSection>
    </PageBackground>
+   <Footer></Footer>
 
    </div>
 

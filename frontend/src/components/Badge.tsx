@@ -1,7 +1,7 @@
 type BadgeProps = {
 
     children: string;
-    tone?: "dark" | "light";
+    tone?: "dark" | "light" | "error";
 
 };
 
@@ -9,6 +9,7 @@ const tones = {
 
     dark: "border border-cream/45 bg-cream/15 text-cream",
     light: "bg-topaz-blue-100/85 text-topaz-blue-800",
+    error: "bg-error-frame text-cream",
 
 };
 

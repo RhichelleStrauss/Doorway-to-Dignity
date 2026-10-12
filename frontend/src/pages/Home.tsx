@@ -7,7 +7,7 @@ import InitiativesSection from "../components/InitiativesSection"
 import CTA from "../components/CTA"
 import StoriesSection from "../components/StoriesSection"
 import QuoteSection from "../components/QuoteSection"
-import Footer from "../components/Footer"
+
 import StudentNotice from "../components/StudentNotice"
 
 function Home() {
@@ -26,7 +26,7 @@ function Home() {
      <QuoteSection></QuoteSection>
      <StoriesSection></StoriesSection>
    </PageBackground>
-   <Footer></Footer>
+   
 
    </div>
 

@@ -154,3 +154,55 @@ as themes and how to import it so i got all the colours creatde in figma via thi
     -webkit-font-smoothing: antialiased;
   }
 }
+
+
+.select-dignity,
+.select-dignity::picker(select) {
+  appearance: base-select;
+}
+
+.select-dignity::picker-icon {
+  color: var(--color-topaz-blue-800);
+  transition: rotate 0.2s;
+}
+
+.select-dignity:open::picker-icon {
+  rotate: 180deg;
+}
+
+
+.select-dignity::picker(select) {
+  margin-top: 2px;
+  padding: 0;
+  border: 1.5px solid var(--color-topaz-blue-800);
+  border-radius: 14px;
+  background: var(--color-topaz-blue-100);
+  color: var(--color-topaz-blue-800);
+}
+
+.select-dignity option {
+  padding: 8px 18px;
+  border-bottom: 1px solid var(--color-topaz-blue-800);
+}
+
+.select-dignity option:last-child {
+  border-bottom: none;
+}
+
+.select-dignity option:hover,
+.select-dignity option:focus-visible {
+  background: var(--color-topaz-blue-200);
+  outline: none;
+}
+
+.select-dignity option:checked {
+  font-weight: 600;
+}
+
+.select-dignity option::checkmark {
+  display: none;
+}
+
+.select-dignity option[value=""] {
+  display: none;
+}

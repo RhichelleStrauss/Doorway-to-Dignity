@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 const variants = {
   default: "bg-card shadow-[0_12px_40px_rgba(8,74,79,0.18)]",
   solid: "bg-kinda-white",
+  teal: "bg-topaz-blue-700/85 shadow-[0_12px_40px_rgba(8,74,79,0.18)]",
 };
 
 type CardProps = {

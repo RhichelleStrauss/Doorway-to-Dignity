@@ -10,6 +10,7 @@ import phoneIcon from "../assets/icons/phone.svg"
 import locationIcon from "../assets/icons/globe.svg"
 
 import { useState } from "react";
+import Disclaimer from "../components/Disclaimer"
 
 const details = [
 
@@ -34,7 +35,14 @@ function Contact() {
 
   return <main>
 
-    <Header></Header>
+    <Header
+      badge="Contact Us"
+  title="Get in Touch"
+  text="Have a question about volunteering, donating or partnering with us? We’d love to hear from you."
+/>
+<Disclaimer>
+  No real information is sent or stored anywhere. This is to simulate a form
+</Disclaimer>
 
     <PageBackground>
 

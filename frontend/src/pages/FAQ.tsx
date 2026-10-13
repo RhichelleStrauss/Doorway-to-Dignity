@@ -30,12 +30,8 @@ Disclaimer: this is a student project, no real donation is made
 
 <PageBackground>
 
-<section className="px-6 md:px-12 lg:px-24 ">
+<section className="px-6 py-14 md:px-12 lg:px-24">
 
-
-
-  
-  
   <div className="mx-auto w-full ">
   <h2 className="text-[30px]/[38px] font-bold text-topaz-blue-800 lg:text-[36px]/[44px] flex items-start ">Frequently asked questions</h2>
   <p className="mt-1.5 text-[15px]/[22px] text-gunmetal-grey-400 flex items-start lg:text-[17px]/[26px]">Frequently asked questions about volunteering and the organisations work</p>

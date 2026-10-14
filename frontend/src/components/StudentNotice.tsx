@@ -29,14 +29,14 @@ function StudentNotice() {
 
   return (
     <dialog ref={dialogRef} className="modal" onClose={handleClose}>
-      <div className="modal-box max-w-[520px] rounded-[14px] border-2 border-topaz-blue-700 bg-primary-topaz-blue-500/20 p-8 shadow-[0_12px_40px_rgba(8,74,79,0.35)] backdrop-blur-xl">
+      <div className="modal-box w-[calc(100%-32px)] max-w-[520px] max-h-[calc(100dvh-32px)] rounded-[14px] border-2 border-topaz-blue-700 bg-primary-topaz-blue-500/20 p-5 shadow-[0_12px_40px_rgba(8,74,79,0.35)] backdrop-blur-xl sm:p-8">
         <Badge tone="error">Student project - Summative Assessment</Badge>
 
-        <h2 className="mt-4 text-[26px]/[34px] font-bold text-topaz-blue-200">
+        <h2 className="mt-4 text-[22px]/[28px] font-bold text-topaz-blue-200 sm:text-[26px]/[34px]">
           Welcome to Doorway To Dignity
         </h2>
 
-        <div className="mt-3 flex flex-col gap-3 text-[15px]/[24px] text-cream">
+        <div className="mt-3 flex flex-col gap-2.5 text-[14px]/[22px] text-cream sm:gap-3 sm:text-[15px]/[24px]">
         <p className="font-bold"> This is not Doorway to Dignity's official website, if you are looking for them please go to <a href="https://doorwaytodignity.org" target="_blank" rel="noreferrer" className="underline">doorwaytodignity.org</a>. </p>
           <p>
             This website has been built as a student project, I am a second year software development student and this website was my summative assessment for semester 2 term 4.
@@ -51,8 +51,8 @@ function StudentNotice() {
           <p>Please have a look around and use the site as you normally would.</p>
         </div>
 
-        <form method="dialog" className="mt-6 flex">
-          <Button type="submit" variant="beigeOutline">Continue to the site</Button>
+        <form method="dialog" className="mt-5 flex sm:mt-6">
+          <Button type="submit" variant="beigeOutline" className="w-full sm:w-auto">Continue to the site</Button>
         </form>
       </div>
     </dialog>

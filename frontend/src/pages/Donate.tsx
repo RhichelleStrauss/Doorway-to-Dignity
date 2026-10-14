@@ -21,7 +21,7 @@ Disclaimer: this is a student project, no real donation is made
 
 <PageBackground>
 
-<section className="px-6 pt-16 pb-14 md:px-12 lg:pt-[108px] lg:pb-[72px]">
+<section className="px-6 py-14 md:px-12 lg:px-24 lg:pb-[72px]">
 
 
   <div className="mx-auto flex max-w-[660px] flex-col gap-[18px] text-center text-[15px]/[24px] text-topaz-blue-800 lg:text-[17px]/[26px]">

@@ -206,3 +206,25 @@ as themes and how to import it so i got all the colours creatde in figma via thi
 .select-dignity option[value=""] {
   display: none;
 }
+
+@theme {
+ --animate-roll: roll-out 15s linear 10s 1 forwards, roll 30s linear 25s infinite;
+
+  @keyframes roll-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50vw - 50%));
+    }
+  }
+
+  @keyframes roll {
+    from {
+      transform: translateX(calc(50vw + 50%));
+    }
+    to {
+      transform: translateX(calc(-50vw - 50%));
+    }
+  }
+}

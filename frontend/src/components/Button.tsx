@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 type ButtonProps = {
   children: string;
-  variant?: "primary" | "outline" | "danger" | "beige";
+  variant?: "primary" | "outline" | "danger" | "beige" | "beigeOutline";
   type?: "button" | "submit" | "reset";
   to?: string;
   className?: string;
@@ -21,6 +21,7 @@ const variants = {
     outline: "border border-cream text-cream hover:bg-cream/15",
     danger: "bg-error text-white hover:bg-error/90",
     beige: "bg-soft-amber-100/70 text-topaz-blue-800 hover:bg-soft-amber-100",
+    beigeOutline: "border border-soft-amber-100 text-soft-amber-100 hover:bg-soft-amber-100/15",
 }
 
 function Button({ children, variant = "primary", type = "button", to, className: extra = "" }: ButtonProps) {

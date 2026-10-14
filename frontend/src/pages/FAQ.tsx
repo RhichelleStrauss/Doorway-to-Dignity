@@ -7,9 +7,21 @@ import Icon from "../components/Icon"
 import chevronIcon from "../assets/icons/chevron-down.svg"
 
 const faqs = [
-  { question: "How do I create an account?", answer: "Click the \"Sign Up\" button in the top right corner and follow the registration process." },
-  { question: "I forgot my password. What should I do?", answer: "Click on \"Forgot Password\" on the login page and follow the instructions sent to your email." },
-  { question: "How do I update my profile information?", answer: "Go to \"My Account\" settings and select \"Edit Profile\" to make changes." },
+
+  { question: "Why and what is analytics", answer: "For our summative assessment, we learn about analytics and deploying a website instead of it being local. the whole purpose is to see where users spend most of their time if things are uncertain" },
+
+  { question: "Is this the official Doorway to Dignity website?", answer: "No. This site is a student project built as a concept for Doorway to Dignity. It isn't run by the organisation. To find out more about them, visit doorwaytodignity.org." },
+
+  { question: "What data is collected while I use the site?", answer: "Google Analytics records which pages are visited and how long people stay on them. Microsoft Clarity records anonymous clicks and scrolling as heatmaps and session recordings. No names, emails or other personal details are collected." },
+
+  { question: "Is anything I type into the forms saved?", answer: "No. The forms are for show only. Nothing you type is sent or stored, so please don't enter any real personal details." },
+
+  { question: "Why can't I log in, sign up or donate?", answer: "Those features need a backend, which is still being built. For now the log in and sign up pages show a coming soon message, and the donate page is a preview of the design. No real donation can be made through this site." },
+
+  { question: "What was the site built with?", answer: "It was designed in Figma first, then built with React, TypeScript, Tailwind CSS and daisyUI, using Vite. It's hosted online so it can be visited from anywhere." },
+
+  { question: "Are the photos real?", answer: "The photos used on this site are stock images." },
+
 ];
 
 
@@ -24,8 +36,7 @@ function FAQ() {
 
 
 <Disclaimer>
-Disclaimer: this is a student project, these questions and answers are placeholders
-
+Disclaimer: this is a student project, these questions and answers are placeholders & some are about the project itself if that interests you.
 </Disclaimer>
 
 
@@ -35,7 +46,7 @@ Disclaimer: this is a student project, these questions and answers are placehold
 
   <div className="mx-auto w-full ">
   <h2 className="text-[30px]/[38px] font-bold text-topaz-blue-800 lg:text-[36px]/[44px] flex items-start ">Frequently asked questions</h2>
-  <p className="mt-1.5 text-[15px]/[22px] text-gunmetal-grey-400 flex items-start lg:text-[17px]/[26px]">Frequently asked questions about volunteering and the organisations work</p>
+  <p className="mt-1.5 text-[15px]/[22px] text-gunmetal-grey-400 flex items-start lg:text-[17px]/[26px]">Frequently asked questions about volunteering and the organisations work & what the purpose of this student site</p>
 
   <div className="join join-vertical mt-6 w-full overflow-hidden rounded-[14px] bg-card shadow-[0_12px_40px_rgba(8,74,79,0.18)]">
     {faqs.map((faq, index) => (

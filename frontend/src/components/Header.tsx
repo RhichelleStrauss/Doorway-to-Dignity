@@ -1,4 +1,4 @@
-import heroImage from "../assets/images/PlaceholderVolunteerImage.jpeg"
+import heroImage from "../assets/images/ComingSoon.jpeg"
 import Background from "./Background";
 import Badge from "./Badge";
 

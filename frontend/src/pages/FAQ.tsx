@@ -24,7 +24,8 @@ function FAQ() {
 
 
 <Disclaimer>
-Disclaimer: this is a student project, no real donation is made
+Disclaimer: this is a student project, these questions and answers are placeholders
+
 </Disclaimer>
 
 

@@ -1,4 +1,0 @@
-# Doorway to Dignity
-
-STUDENT PROJECT, CLIENT BRIEF PROJECT
-

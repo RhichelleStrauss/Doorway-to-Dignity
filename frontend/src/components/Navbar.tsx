@@ -12,7 +12,7 @@ import Icon from "./Icon";
 const links = [
   { label: "Home", to: "/" },
   { label: "Contact us", to: "/contact" },
-  { label: "Dashboard", to: "/dashboard" },
+  // { label: "Dashboard", to: "/dashboard" },
   { label: "FAQ", to: "/faq" },
   { label: "Donate", to: "/donate" },
 ];
@@ -42,7 +42,7 @@ useEffect(() => {
       </div>
 
       <div className="flex flex-none items-center gap-4">
-        {/* desktop links: hidden below lg */}
+       
         <ul className="hidden items-center gap-4 lg:flex">
           {/* links map goes through array one at a time
           runs function
@@ -70,7 +70,7 @@ useEffect(() => {
           ))}
         </ul>
 
-        <NavLink
+        {/* <NavLink
           to="/login"
           aria-label="Log in"
           className={({ isActive }) =>
@@ -78,7 +78,7 @@ useEffect(() => {
           }
         >
           <Icon src={userIcon} className="size-7" />
-        </NavLink>
+        </NavLink> */}
 
          
         <button

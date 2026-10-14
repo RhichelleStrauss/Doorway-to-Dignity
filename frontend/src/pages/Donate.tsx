@@ -36,10 +36,10 @@ Disclaimer: this is a student project, no real donation is made
         <div className="absolute inset-0 bg-topaz-blue-more-than-900/70" />
 
         <div className="relative flex flex-col items-center gap-[18px]">
-          <Badge>your badge</Badge>
-          <h2 className="text-[28px]/[36px] font-bold text-cream lg:text-[36px]/[44px]">your heading</h2>
-          <p className="text-[15px]/[24px] text-soft-amber-100">your line of text</p>
-          <Button className="w-full max-w-[270px]">your button text</Button>
+          <Badge>SUPPORT OUR WORK</Badge>
+          <h2 className="text-[28px]/[36px] font-bold text-cream lg:text-[36px]/[44px]">Make an Online Donation</h2>
+          <p className="text-[15px]/[24px] text-soft-amber-100">You’ll be redirected to our secure payment page.</p>
+          <Button className="w-full max-w-[270px]">Click here payment</Button>
         </div>
       </div>
       

@@ -4,6 +4,19 @@ import Disclaimer from "../components/Disclaimer"
 import Badge from "../components/Badge"
 import Button from "../components/Button"
 import cardImage from "../assets/images/PlaceholderImageDonate.jpeg"
+import confetti from "canvas-confetti"
+
+const confettiColours = ["#13c0d1", "#02616b", "#fdf3de", "#d0c5ae", "#06c76f"];
+
+function celebrate() {
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.7 },
+    colors: confettiColours,
+    disableForReducedMotion: true,
+  });
+}
 
 function Donate() {
   return <main>
@@ -39,7 +52,7 @@ Disclaimer: this is a student project, no real donation is made
           <Badge>SUPPORT OUR WORK</Badge>
           <h2 className="text-[28px]/[36px] font-bold text-cream lg:text-[36px]/[44px]">Make an Online Donation</h2>
           <p className="text-[15px]/[24px] text-soft-amber-100">You’ll be redirected to our secure payment page.</p>
-          <Button className="w-full max-w-[270px]">Click here payment</Button>
+          <Button className="w-full max-w-[270px]" onClick={celebrate}>Donate here</Button>
         </div>
       </div>
       

@@ -14,6 +14,7 @@ type ButtonProps = {
   type?: "button" | "submit" | "reset";
   to?: string;
   className?: string;
+  onClick?: () => void;
 };
 
 const variants = {
@@ -24,7 +25,7 @@ const variants = {
     beigeOutline: "border border-soft-amber-100 text-soft-amber-100 hover:bg-soft-amber-100/15",
 }
 
-function Button({ children, variant = "primary", type = "button", to, className: extra = "" }: ButtonProps) {
+function Button({ children, variant = "primary", type = "button", to, className: extra = "", onClick }: ButtonProps) {
     const className = `inline-flex h-[42px] items-center justify-center rounded-[14px] px-8 text-[15px] font-semibold transition-colors ${variants[variant]} ${extra}`;
 
   if (to) {                                     
@@ -38,7 +39,8 @@ function Button({ children, variant = "primary", type = "button", to, className:
   return (                                      
      <button
      type={type}
-      className={className}                  
+      className={className}
+      onClick={onClick}
     >
       {children} 
       {/* children text in button, spot where text goes */}

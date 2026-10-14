@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/figma/logo.png";
-import userIcon from "../assets/icons/user.svg";
+// import userIcon from "../assets/icons/user.svg";
 import menuIcon from "../assets/icons/menu.svg";
 import closeIcon from "../assets/icons/x-circle.svg";
 import Icon from "./Icon";
@@ -136,7 +136,7 @@ useEffect(() => {
 
          
           <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
-            <NavLink
+            {/* <NavLink
               to="/login"
               onClick={() => setOpen(false)}
               className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-[17px] font-semibold text-cream"
@@ -144,7 +144,7 @@ useEffect(() => {
               <Icon src={userIcon} className="size-6" />
               <span className="flex-1">My account</span>
               <span aria-hidden="true">›</span>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/signup"
               onClick={() => setOpen(false)}

@@ -14,10 +14,12 @@ import Disclaimer from "../components/Disclaimer"
 
 const details = [
 
-  { icon: mailIcon, label: "Email", value: "hello@doorwaytodignity.org" },
+  { icon: mailIcon, label: "Email", value: "hello@doorwaytemplate.org" },
   { icon: phoneIcon, label: "Phone", value: "+27 00 000 0000" },
-  { icon: locationIcon, label: "Where we work", value: `Cnr Rabie Street & 4th Avenue North (entrance in Rabie)
-Fontainebleau 
+  { icon: locationIcon, label: "Where we work", value: `Cnr Somewhere Street 
+    & 4th somewhere 
+    avenue north
+somewhere  
 Randburg, 2032
 South Africa` },
 
@@ -120,7 +122,7 @@ function Contact() {
     <Card variant="teal" className="flex flex-col items-start gap-4 p-6 md:p-9">
                 <h2 className="text-[24px]/[32px] font-bold text-cream lg:text-[27px]/[33px]">Looking for Quick Answers?</h2>
                 <p className="text-[16px] text-cream">
-                  Most volunteering questions are answered in our FAQ.
+                  Most volunteering & details regarding this student website questions are answered in our FAQ.
                 </p>
                 <Button variant="outline" to="/faq">
               Visit our FAQ

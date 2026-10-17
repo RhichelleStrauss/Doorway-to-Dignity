@@ -21,6 +21,9 @@ function celebrate() {
 function Donate() {
   return <main>
 
+    <title>Donate | Doorway To Dignity (Student Project)</title>
+    <meta name="description" content="Student concept of a donation page for Doorway To Dignity. No real donations are taken on this site. Not the official site." />
+
     <Header
   badge="Donate"
   title="Become a Hero: Your Donation, Their New Beginning"

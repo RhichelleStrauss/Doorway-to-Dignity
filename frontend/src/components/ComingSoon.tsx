@@ -9,6 +9,9 @@ type ComingSoonProps = {
 export function ComingSoon({ text }: ComingSoonProps) {
   return (
     <Background image={heroImage} className="h-[calc(100dvh-72px)] min-h-[520px]">
+      <title>Coming Soon | Doorway To Dignity (Student Project)</title>
+      
+      <meta name="robots" content="noindex" />
       <div className="flex h-full flex-col items-start justify-center gap-6 px-6 md:px-12 lg:px-24">
         <h1 className="max-w-[810px] text-[34px]/[42px] font-bold text-[#F15152] lg:text-[57px]/[65px]">
           COMING SOON!

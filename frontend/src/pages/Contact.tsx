@@ -37,6 +37,9 @@ function Contact() {
 
   return <main>
 
+    <title>Contact | Doorway To Dignity (Student Project)</title>
+    <meta name="description" content="Student concept site for Doorway To Dignity. See how visitors could get in touch about volunteering, donating or partnering. Not the official site." />
+
     <Header
       badge="Contact Us"
   title="Get in Touch"

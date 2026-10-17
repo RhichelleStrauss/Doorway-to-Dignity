@@ -13,6 +13,9 @@ import StudentNotice from "../components/StudentNotice"
 function Home() {
   return <main>
 
+    <title>Doorway To Dignity (Student Project) | Volunteer in Randburg</title>
+    <meta name="description" content="A student concept website for Doorway To Dignity, not the official site. Explore how the organisation restores dignity and hope for vulnerable people in Randburg." />
+
   
    <div>
   <StudentNotice></StudentNotice>

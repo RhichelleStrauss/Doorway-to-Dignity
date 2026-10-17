@@ -28,6 +28,10 @@ const faqs = [
 function FAQ() {
   return <main>
 
+    <title>FAQ | Doorway To Dignity (Student Project)</title>
+    <meta name="description" content="Answers to common questions about this student project and Doorway To Dignity." />
+
+
     <Header
   badge="FAQ"
   title="Frequently asked questions"
@@ -51,7 +55,7 @@ Disclaimer: this is a student project, these questions and answers are placehold
   <div className="join join-vertical mt-6 w-full overflow-hidden rounded-[14px] bg-card shadow-[0_12px_40px_rgba(8,74,79,0.18)]">
     {faqs.map((faq, index) => (
       <div key={faq.question} className="group collapse join-item rounded-none border-b border-soft-amber-100 last:border-b-0 has-[:checked]:bg-kinda-white">
-        <input type="radio" name="faq" defaultChecked={index === 0} />
+        <input type="checkbox" defaultChecked={index === 0} className="h-full" />
         <div className="collapse-title flex items-center justify-between gap-[18px] px-6 py-[18px] text-[17px]/[24px] font-semibold text-topaz-blue-800 lg:text-[20px]/[28px]">
           {faq.question}
           <span className="grid size-[30px] shrink-0 place-items-center rounded-full bg-topaz-blue-100 text-topaz-blue-700 transition group-has-[:checked]:rotate-180 group-has-[:checked]:bg-topaz-blue-700 group-has-[:checked]:text-cream">

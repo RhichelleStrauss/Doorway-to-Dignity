@@ -29,6 +29,7 @@ function FAQ() {
   return <main>
 
     <title>FAQ | Doorway To Dignity (Student Project)</title>
+    <link rel="canonical" href="https://www.doorwaytodignityow251169.co.za/faq" />
     <meta name="description" content="Answers to common questions about this student project and Doorway To Dignity." />
 
 

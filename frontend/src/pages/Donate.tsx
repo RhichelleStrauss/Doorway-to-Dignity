@@ -22,6 +22,7 @@ function Donate() {
   return <main>
 
     <title>Donate | Doorway To Dignity (Student Project)</title>
+    <link rel="canonical" href="https://www.doorwaytodignityow251169.co.za/donate" />
     <meta name="description" content="Student concept of a donation page for Doorway To Dignity. No real donations are taken on this site. Not the official site." />
 
     <Header

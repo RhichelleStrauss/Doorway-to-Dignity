@@ -38,6 +38,7 @@ function Contact() {
   return <main>
 
     <title>Contact | Doorway To Dignity (Student Project)</title>
+    <link rel="canonical" href="https://www.doorwaytodignityow251169.co.za/contact" />
     <meta name="description" content="Student concept site for Doorway To Dignity. See how visitors could get in touch about volunteering, donating or partnering. Not the official site." />
 
     <Header

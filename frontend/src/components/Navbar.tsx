@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import logOutIcon from "../assets/icons/log-out.svg";
+import { useAuth } from "../context/AuthContext";
 import logo from "../assets/figma/logo.png";
-// import userIcon from "../assets/icons/user.svg";
+import userIcon from "../assets/icons/user.svg";
 import menuIcon from "../assets/icons/menu.svg";
 import closeIcon from "../assets/icons/x-circle.svg";
 import Icon from "./Icon";
@@ -12,7 +14,7 @@ import Icon from "./Icon";
 const links = [
   { label: "Home", to: "/" },
   { label: "Contact us", to: "/contact" },
-  // { label: "Dashboard", to: "/dashboard" },
+  { label: "Dashboard", to: "/dashboard" },
   { label: "FAQ", to: "/faq" },
   { label: "Donate", to: "/donate" },
 ];
@@ -29,6 +31,19 @@ function Navbar() {
 useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
+
+    const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  // dash shows hwen someone is logged in only 
+  const visibleLinks = links.filter((link) => link.to !== "/dashboard" || user);
+
+  async function handleLogout() {
+    await logout();
+    setOpen(false);
+    navigate("/");
+  }
+
 
   return (
     <div className="navbar h-[72px] border-b-[3px] border-primary-topaz-blue-500 bg-topaz-blue-700 px-6 shadow-[0_6px_16.9px_rgba(0,0,0,0.25)] md:px-[72px]">
@@ -48,7 +63,8 @@ useEffect(() => {
           runs function
           returns new array, one list item per item */}
 
-          {links.map((link) => (
+          {visibleLinks.map((link) => (
+
             <li key={link.to}>
               <NavLink
                 to={link.to}
@@ -70,15 +86,32 @@ useEffect(() => {
           ))}
         </ul>
 
-        {/* <NavLink
-          to="/login"
-          aria-label="Log in"
-          className={({ isActive }) =>
-            `block transition-colors hover:text-primary-topaz-blue-500 ${isActive ? "text-primary-topaz-blue-500" : "text-soft-amber-100"}`
-          }
-        >
-          <Icon src={userIcon} className="size-7" />
-        </NavLink> */}
+                {user ? (
+          <div className="hidden items-center gap-3 lg:flex">
+            <span className="text-[15px] font-semibold text-soft-amber-100">
+              {user.fullName.split(" ")[0]}
+            </span>
+            <button
+              type="button"
+              onClick={handleLogout}
+              aria-label="Log out"
+              className="block text-soft-amber-100 transition-colors hover:text-primary-topaz-blue-500"
+            >
+              <Icon src={logOutIcon} className="size-7" />
+            </button>
+          </div>
+        ) : (
+          <NavLink
+            to="/login"
+            aria-label="Log in"
+            className={({ isActive }) =>
+              `block transition-colors hover:text-primary-topaz-blue-500 ${isActive ? "text-primary-topaz-blue-500" : "text-soft-amber-100"}`
+            }
+          >
+            <Icon src={userIcon} className="size-7" />
+          </NavLink>
+        )}
+
 
          
         <button
@@ -92,10 +125,10 @@ useEffect(() => {
         </button>
 
       </div>
-            
-      {open && (
+
+            {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-topaz-blue-800 lg:hidden">
-         
+
           <div className="flex items-center justify-between border-b border-topaz-blue-700 px-4 py-4">
             <NavLink to="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
               <img src={logo} alt="" className="size-12" />
@@ -111,9 +144,8 @@ useEffect(() => {
             </button>
           </div>
 
-          
           <ul className="flex flex-col gap-2 px-4 py-6">
-            {links.map((link) => (
+            {visibleLinks.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
@@ -134,25 +166,40 @@ useEffect(() => {
             ))}
           </ul>
 
-         
-          <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
-            {/* <NavLink
-              to="/login"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-[17px] font-semibold text-cream"
-            >
-              <Icon src={userIcon} className="size-6" />
-              <span className="flex-1">My account</span>
-              <span aria-hidden="true">›</span>
-            </NavLink> */}
-            <NavLink
-              to="/signup"
-              onClick={() => setOpen(false)}
-              className="rounded-[14px] bg-primary-topaz-blue-500 py-4 text-center text-[17px] font-semibold text-topaz-blue-800"
-            >
-              Become a volunteer
-            </NavLink>
+
+            
+                <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
+            {user ? (
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-left text-[17px] font-semibold text-cream"
+              >
+                <Icon src={logOutIcon} className="size-6" />
+                <span className="flex-1">Log out ({user.fullName.split(" ")[0]})</span>
+              </button>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-[17px] font-semibold text-cream"
+                >
+                  <Icon src={userIcon} className="size-6" />
+                  <span className="flex-1">My account</span>
+                  <span aria-hidden="true">›</span>
+                </NavLink>
+                <NavLink
+                  to="/signup"
+                  onClick={() => setOpen(false)}
+                  className="rounded-[14px] bg-primary-topaz-blue-500 py-4 text-center text-[17px] font-semibold text-topaz-blue-800"
+                >
+                  Become a volunteer
+                </NavLink>
+              </>
+            )}
           </div>
+
         </div>
       )}
 

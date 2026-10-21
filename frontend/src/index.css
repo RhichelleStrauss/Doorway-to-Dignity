@@ -153,6 +153,12 @@ as themes and how to import it so i got all the colours creatde in figma via thi
     background: var(--color-soft-amber-100);
     -webkit-font-smoothing: antialiased;
   }
+
+ 
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 

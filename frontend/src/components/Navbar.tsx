@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/figma/logo.png";
 import userIcon from "../assets/icons/user.svg";

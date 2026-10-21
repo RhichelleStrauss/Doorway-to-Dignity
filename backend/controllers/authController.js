@@ -87,7 +87,8 @@ exports.logout = (req, res) => {
 };
 
 exports.me = (req, res) => {
-    res.status(200).json({ fullName: req.user.fullName, email: req.user.email, role: req.user.role });
+    const { _id, fullName, email, phone, role, preferredRole, createdAt } = req.user;
+    res.status(200).json({ id: _id, fullName, email, phone, role, preferredRole, createdAt });
 };
 
       

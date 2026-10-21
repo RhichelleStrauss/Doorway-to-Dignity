@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import logOutIcon from "../assets/icons/log-out.svg";
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/figma/logo.png";
 import userIcon from "../assets/icons/user.svg";
@@ -32,17 +31,13 @@ useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-    const { user, logout } = useAuth();
-  const navigate = useNavigate();
+    const { user } = useAuth();
+
 
   // dash shows hwen someone is logged in only 
   const visibleLinks = links.filter((link) => link.to !== "/dashboard" || user);
 
-  async function handleLogout() {
-    await logout();
-    setOpen(false);
-    navigate("/");
-  }
+
 
 
   return (
@@ -86,31 +81,17 @@ useEffect(() => {
           ))}
         </ul>
 
-                {user ? (
-          <div className="hidden items-center gap-3 lg:flex">
-            <span className="text-[15px] font-semibold text-soft-amber-100">
-              {user.fullName.split(" ")[0]}
-            </span>
-            <button
-              type="button"
-              onClick={handleLogout}
-              aria-label="Log out"
-              className="block text-soft-amber-100 transition-colors hover:text-primary-topaz-blue-500"
-            >
-              <Icon src={logOutIcon} className="size-7" />
-            </button>
-          </div>
-        ) : (
-          <NavLink
-            to="/login"
-            aria-label="Log in"
-            className={({ isActive }) =>
-              `block transition-colors hover:text-primary-topaz-blue-500 ${isActive ? "text-primary-topaz-blue-500" : "text-soft-amber-100"}`
-            }
-          >
-            <Icon src={userIcon} className="size-7" />
-          </NavLink>
-        )}
+                        <NavLink
+          to={user ? "/profile" : "/login"}
+          aria-label={user ? "My profile" : "Log in"}
+          className={({ isActive }) =>
+            `block transition-colors hover:text-primary-topaz-blue-500 ${isActive ? "text-primary-topaz-blue-500" : "text-soft-amber-100"}`
+          }
+        >
+          <Icon src={userIcon} className="size-7" />
+        </NavLink>
+
+        
 
 
          
@@ -169,15 +150,16 @@ useEffect(() => {
 
             
                 <div className="mt-auto flex flex-col gap-3 px-4 pb-6">
-            {user ? (
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-left text-[17px] font-semibold text-cream"
+                      {user ? (
+              <NavLink
+                to="/profile"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-4 rounded-[14px] border border-cream/30 px-5 py-4 text-[17px] font-semibold text-cream"
               >
-                <Icon src={logOutIcon} className="size-6" />
-                <span className="flex-1">Log out ({user.fullName.split(" ")[0]})</span>
-              </button>
+                <Icon src={userIcon} className="size-6" />
+                <span className="flex-1">My profile</span>
+                <span aria-hidden="true">›</span>
+              </NavLink>
             ) : (
               <>
                 <NavLink
@@ -198,6 +180,7 @@ useEffect(() => {
                 </NavLink>
               </>
             )}
+
           </div>
 
         </div>

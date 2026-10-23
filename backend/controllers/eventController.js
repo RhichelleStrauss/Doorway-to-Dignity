@@ -4,7 +4,7 @@ const Signup = require("../models/Signup");
 
 exports.listEvents = async (req, res) => {
   try {
-    const events = await Event.find({ end: { $gte: new Date() } }).sort({ start: 1 }).lean();
+    const events = await Event.find({ end: mongoose.trusted({ $gte: new Date() }) }).sort({ start: 1 }).lean();
 
     
        const counts = await Signup.aggregate([

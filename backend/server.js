@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const rateLimit = require("express-rate-limit");
 require("dotenv").config();
+
+
+mongoose.set("sanitizeFilter", true);
 
 const authRoutes = require('./routes/authRoutes');
 const eventRoutes = require('./routes/eventRoutes');
@@ -11,9 +14,19 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(express.json({ inflate: false }));
 app.use(cookieParser());
+
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  keyGenerator: (req) => String(req.body?.email || "").trim().toLowerCase() || "no-email",
+  validate: { xForwardedForHeader: false },
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: { message: "Too many login attempts. Please try again in 15 minutes." },
+});
+app.use("/api/auth/login", loginLimiter);
 
 
 

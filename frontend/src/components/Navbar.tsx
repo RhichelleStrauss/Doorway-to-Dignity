@@ -36,7 +36,9 @@ useEffect(() => {
 
 
   // dash shows hwen someone is logged in only 
-  const visibleLinks = links.filter((link) => link.to !== "/dashboard" || user);
+    const visibleLinks = links
+    .filter((link) => link.to !== "/dashboard" || user)
+    .map((link) => (link.to === "/dashboard" && user?.role === "admin" ? { ...link, to: "/admin" } : link));
 
 
 

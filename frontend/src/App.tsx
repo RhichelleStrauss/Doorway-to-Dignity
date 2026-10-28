@@ -10,6 +10,8 @@ import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import NeedAuth from './components/NeedAuth'
 import Profile from './pages/Profile'
+import AdminDashboard from './pages/AdminDashboard'
+import CreateEvent from './pages/CreateEvent'
 
 
 
@@ -23,6 +25,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<NeedAuth><VolunteerDashboard /></NeedAuth>} />
         <Route path="/profile" element={<NeedAuth><Profile /></NeedAuth>} />
+        <Route path="/admin" element={<NeedAuth role="admin"><AdminDashboard /></NeedAuth>} />
+        <Route path="/admin/create" element={<NeedAuth role="admin"><CreateEvent /></NeedAuth>} />
+
 
         <Route path="/faq" element={<FAQ />} />
         <Route path="/donate" element={<Donate />} />

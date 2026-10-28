@@ -55,7 +55,7 @@ function AuthIntro({ mode }: AuthIntroProps) {
       <div className={`mt-12 flex flex-col items-start ${align} ${isSignup ? "gap-[14px] lg:mt-[min(63px,6dvh)]" : "gap-5 lg:mt-[min(92px,9dvh)]"}`}>
         <Badge tone="amber">{c.prompt}</Badge>
         <p className="text-[15px]/[24px] text-soft-amber-100 lg:text-[18px]/[24px]">{c.promptText}</p>
-        <Button to={c.to} variant="outline">{c.button}</Button>
+        <Button to={c.to} variant="outline" className="w-[150px]">{c.button}</Button>
       </div>
     </div>
   );

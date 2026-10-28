@@ -4,7 +4,7 @@ import potsOfHope from "../assets/images/PlaceholderImage1.jpeg";
 import fallback from "../assets/images/PlaceholderVolunteerImage.jpeg";
 
 
-const eventImages: Record<string, string> = {
+export const eventImages: Record<string, string> = {
   "jars-of-hope": jarsOfHope,
   "shelter-bags": shelterBags,
   "pots-of-hope": potsOfHope,

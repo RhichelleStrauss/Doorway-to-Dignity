@@ -21,7 +21,7 @@ const legend = [
   { label: "Passed", className: "bg-gunmetal-grey-400" },
 ];
 
-const monthName = new Intl.DateTimeFormat("en-ZA", { month: "long", year: "numeric" });
+const monthName = new Intl.DateTimeFormat("en-ZA", { month: "long" });
 
 
 function dayKey(date: Date) {
@@ -61,20 +61,22 @@ function EventCalendar({ events, signups, onSelectEvent }: EventCalendarProps) {
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-[24px]/[32px] font-bold text-topaz-blue-800 xl:text-[28px]/[36px]">Your calendar</h2>
-        <div className="flex items-center gap-3 text-topaz-blue-800">
+      <h2 className="text-[24px]/[32px] font-bold text-topaz-blue-800 xl:text-[28px]/[36px]">Your calendar</h2>
+
+      <Card className="mt-6 grid flex-1 content-center gap-6 p-6 md:p-9 xl:grid-cols-[1fr_170px] xl:grid-rows-[auto_auto] xl:gap-x-9">
+        <div className="flex items-start justify-center gap-2 text-topaz-blue-800 xl:col-start-2 xl:row-start-1">
           <button type="button" onClick={() => changeMonth(-1)} aria-label="Previous month" className="grid size-8 place-items-center">
             <Icon src={chevronIcon} className="size-5 rotate-90" />
           </button>
-          <span className="min-w-[130px] text-center text-[17px] font-semibold">{monthName.format(month)}</span>
+          <div className="min-w-[110px] text-center">
+            <p className="text-[20px]/[28px] font-bold">{monthName.format(month)}</p>
+            <p className="text-[13px] text-gunmetal-grey-400">{month.getFullYear()}</p>
+          </div>
           <button type="button" onClick={() => changeMonth(1)} aria-label="Next month" className="grid size-8 place-items-center">
             <Icon src={chevronIcon} className="size-5 -rotate-90" />
           </button>
         </div>
-      </div>
 
-      <Card className="mt-6 flex-1 p-6 md:p-9">
         <DayPicker
           month={month}
           onMonthChange={setMonth}
@@ -83,7 +85,7 @@ function EventCalendar({ events, signups, onSelectEvent }: EventCalendarProps) {
           fixedWeeks
           weekStartsOn={1}
           onDayClick={handleDayClick}
-          formatters={{ formatWeekdayName: (d) => d.toLocaleDateString("en-ZA", { weekday: "short" }) }}
+          formatters={{ formatWeekdayName: (d) => d.toLocaleDateString("en-ZA", { weekday: "narrow" }) }}
           modifiers={{
             mine: is("mine"),
             full: is("full"),
@@ -101,25 +103,25 @@ function EventCalendar({ events, signups, onSelectEvent }: EventCalendarProps) {
             outside: "[&>button]:!bg-transparent [&>button]:!text-gunmetal-grey-400/50 [&>button]:!border-0",
           }}
           classNames={{
-            root: "w-full",
+            root: "w-full xl:col-start-1 xl:row-span-2 xl:row-start-1",
             months: "w-full",
             month: "w-full",
             month_caption: "hidden",
             month_grid: "w-full border-collapse",
-            weekday: "pb-3 text-center text-[11px] font-semibold uppercase tracking-[1px] text-gunmetal-grey-400",
-            week: "border-b border-soft-amber-100 last:border-b-0",
-            day: "h-11 p-0 text-center",
-            day_button: "mx-auto grid size-9 cursor-default place-items-center rounded-full text-[15px] text-topaz-blue-800 transition-opacity",
+            weekday: "pb-3 text-center text-[16px] font-semibold text-topaz-blue-800",
+            week: "border-t border-gunmetal-grey-200",
+            day: "h-[52px] p-0 text-center",
+            day_button: "mx-auto grid size-10 cursor-default place-items-center rounded-full text-[16px] text-topaz-blue-800 transition-opacity",
           }}
         />
 
-        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-gunmetal-grey-400">
-          <span className="flex items-center gap-1.5">
-            <span className="size-3 rounded-full border-2 border-topaz-blue-800" /> Today
+        <div className="flex flex-wrap gap-x-5 gap-y-3 text-[13px] text-gunmetal-grey-400 xl:col-start-2 xl:row-start-2 xl:flex-col">
+          <span className="flex items-center gap-2">
+            <span className="size-3.5 shrink-0 rounded-full border-2 border-topaz-blue-800" /> Today
           </span>
           {legend.map((item) => (
-            <span key={item.label} className="flex items-center gap-1.5">
-              <span className={`size-3 rounded-full ${item.className}`} /> {item.label}
+            <span key={item.label} className="flex items-center gap-2">
+              <span className={`size-3.5 shrink-0 rounded-full ${item.className}`} /> {item.label}
             </span>
           ))}
         </div>

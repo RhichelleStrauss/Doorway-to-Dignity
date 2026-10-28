@@ -148,14 +148,16 @@ function EventDetailsModal({ event, onClose, onSignedUp }: EventDetailsModalProp
                       </p>
                     </div>
 
+                    <p className="text-[12px] text-gunmetal-grey-400">You can cancel up to 24 hours before the event.</p>
+
                     {error && <p className="text-[13px] text-error">{error}</p>}
 
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="mt-2 h-[42px] w-full rounded-[14px] border-[1.5px] border-error text-[15px] font-semibold text-error transition-colors hover:bg-error/10"
+                      className="mt-2 h-[42px] min-w-[150px] self-end whitespace-nowrap rounded-[14px] border-[1.5px] border-error px-8 text-[15px] font-semibold text-error transition-colors hover:bg-error/10"
                     >
-                      {loading ? "Cancelling…" : "Cancel my sign-up"}
+                      {loading ? "Cancelling…" : "Cancel"}
                     </button>
                   </>
                 ) : (
@@ -207,13 +209,13 @@ function EventDetailsModal({ event, onClose, onSignedUp }: EventDetailsModalProp
                   );
                 })}
 
+                    <p className="text-[12px] text-gunmetal-grey-400">You can cancel up to 24 hours before the event.</p>
+
                                    {error && <p className="text-[13px] text-error">{error}</p>}
 
-                    <Button type="submit" className="mt-2 w-full">{loading ? "Signing up…" : "Sign up for this event"}</Button>
+                    <Button type="submit" className="mt-2 min-w-[150px] self-end whitespace-nowrap">{loading ? "Signing up…" : "Sign up"}</Button>
                   </>
                 )}
-
-                <p className="text-[12px] text-gunmetal-grey-400">You can cancel up to 24 hours before the event.</p>
 
               </form>
             </div>

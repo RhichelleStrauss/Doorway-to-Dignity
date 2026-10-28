@@ -155,7 +155,7 @@ function EventDetailsModal({ event, onClose, onSignedUp }: EventDetailsModalProp
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="mt-2 h-[42px] min-w-[150px] self-end whitespace-nowrap rounded-[14px] border-[1.5px] border-error px-8 text-[15px] font-semibold text-error transition-colors hover:bg-error/10"
+                      className="mt-auto h-[42px] min-w-[150px] self-end whitespace-nowrap rounded-[14px] border-[1.5px] border-error px-8 text-[15px] font-semibold text-error transition-colors hover:bg-error/10"
                     >
                       {loading ? "Cancelling…" : "Cancel"}
                     </button>

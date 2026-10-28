@@ -52,7 +52,7 @@ function EventCard({ event, onSignUp }: EventCardProps) {
            <div className="relative">
         <img src={getEventImage(event.image)} alt="" className="h-[165px] w-full rounded-[12px] object-cover" />
         {event.signedUp && (
-          <span className="absolute top-2.5 left-2.5 rounded-full bg-green-teal-100 px-3 py-1 text-[12px] font-semibold text-green-teal-800 shadow-sm">
+          <span className="absolute top-2.5 left-2.5 inline-flex h-8 items-center rounded-[10px] bg-green-teal-100 px-3 text-[12px] font-semibold text-green-teal-800 shadow-sm">
             Signed up
           </span>
         )}

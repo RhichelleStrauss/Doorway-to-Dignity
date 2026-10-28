@@ -163,6 +163,18 @@ as themes and how to import it so i got all the colours creatde in figma via thi
 }
 
 
+:root {
+  scrollbar-color: color-mix(in srgb, var(--color-topaz-blue-700) 55%, transparent) transparent;
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+.select-dignity::picker(select) {
+  scrollbar-width: thin;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover {
   -webkit-text-fill-color: var(--color-topaz-blue-800) !important;

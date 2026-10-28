@@ -46,7 +46,7 @@ function UpcomingEvents({ signups }: UpcomingEventsProps) {
                 <div className="flex min-w-0 flex-col items-start gap-1">
                   <h3 className="text-[18px]/[24px] font-bold text-topaz-blue-800">{signup.event.title}</h3>
                   <p className="text-[13px] text-gunmetal-grey-400">{formatEventDate(signup.event.start, signup.event.end)}</p>
-                  <span className="rounded-full bg-topaz-blue-100 px-2.5 py-0.5 text-[12px] font-semibold text-topaz-blue-800">
+                  <span className="inline-flex h-8 items-center rounded-[10px] bg-topaz-blue-100 px-3 text-[12px] font-semibold text-topaz-blue-800">
                     {signup.role}
                   </span>
                 </div>

@@ -189,7 +189,7 @@ function Profile() {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="mt-8 h-[42px] w-[150px] rounded-[14px] border-[1.5px] border-error text-[15px] font-semibold text-error transition-colors hover:bg-error/10 lg:mt-auto lg:self-end"
+                className="mt-8 h-[42px] w-full rounded-[14px] sm:w-[150px] border-[1.5px] border-error text-[15px] font-semibold text-error transition-colors hover:bg-error/10 lg:mt-auto lg:self-end"
               >
                 Log out
               </button>
@@ -296,7 +296,7 @@ function Profile() {
                           {new Date(s.event.start).toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })} · {s.role}
                         </p>
                       </div>
-                      <span className="rounded-full bg-topaz-blue-100 px-3 py-1 text-[12px] font-semibold text-topaz-blue-800">
+                      <span className="inline-flex h-8 shrink-0 items-center rounded-[10px] bg-topaz-blue-100 px-3 text-[12px] font-semibold text-topaz-blue-800">
                         Completed
                       </span>
                     </Card>

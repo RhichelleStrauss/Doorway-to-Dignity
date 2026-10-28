@@ -121,11 +121,11 @@ function AdminDashboard() {
                     )}
                   </Card>
 
-                  <div className="mt-auto pt-10">
+                  <div className="mt-auto w-full pt-10 sm:w-auto">
                     <button
                       type="button"
                       onClick={handleLogout}
-                      className="h-[42px] w-[150px] rounded-[14px] border-[1.5px] border-error text-[15px] font-semibold text-error transition-colors hover:bg-error/20"
+                      className="h-[42px] w-full rounded-[14px] sm:w-[150px] border-[1.5px] border-error text-[15px] font-semibold text-error transition-colors hover:bg-error/20"
                     >
                       Log out
                     </button>
@@ -151,8 +151,9 @@ function AdminDashboard() {
           ) : !selected ? (
             <p className="mt-6 text-gunmetal-grey-400">There are no upcoming events yet. Create one to get started.</p>
           ) : (
-            <div className="mt-6 grid items-start gap-6 lg:grid-cols-[520fr_1128fr]">
-              <Card className="flex flex-col gap-3 p-4 lg:max-h-[640px] lg:overflow-y-auto">
+            <div className="mt-6 grid gap-6 lg:grid-cols-[520fr_1128fr]">
+              <Card className="relative lg:min-h-[360px]">
+                <div className="flex flex-col gap-3 p-4 lg:absolute lg:inset-0 lg:overflow-y-auto">
                 {events.map((event) => {
                   const active = event._id === selected._id;
                   return (
@@ -172,7 +173,7 @@ function AdminDashboard() {
                         <h3 className="text-[17px]/[22px] font-bold text-topaz-blue-800">{event.title}</h3>
                         <p className="text-[13px] text-gunmetal-grey-400">{formatEventDate(event.start, event.end)}</p>
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[12px] font-semibold text-topaz-blue-800 ${
+                          className={`inline-flex h-8 items-center rounded-[10px] px-3 text-[12px] font-semibold text-topaz-blue-800 ${
                             active ? "bg-topaz-blue-200" : "bg-topaz-blue-100"
                           }`}
                         >
@@ -182,6 +183,7 @@ function AdminDashboard() {
                     </button>
                   );
                 })}
+                </div>
               </Card>
 
               <Card className="p-6 md:p-9">

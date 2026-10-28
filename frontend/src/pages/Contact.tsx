@@ -90,10 +90,12 @@ function Contact() {
         />
       </div>
 
-      <TextField label="Message" id="message" placeholder="How can we help?" multiline />
+      <div className="flex flex-1 flex-col [&>fieldset]:flex-1 [&>fieldset]:grid-rows-[auto_1fr] [&_textarea]:h-full">
+        <TextField label="Message" id="message" placeholder="How can we help?" multiline />
+      </div>
 
-      <div className="mt-auto">
-        <Button type="submit">Send message</Button>
+      <div className="flex justify-end">
+        <Button type="submit" className="min-w-[150px] whitespace-nowrap">Send message</Button>
       </div>
     </form>
     )}
@@ -128,7 +130,7 @@ function Contact() {
                 <p className="text-[16px] text-cream">
                   Most volunteering & details regarding this student website questions are answered in our FAQ.
                 </p>
-                <Button variant="outline" to="/faq">
+                <Button variant="outline" to="/faq" className="min-w-[150px] self-end whitespace-nowrap">
               Visit our FAQ
                 </Button>
       

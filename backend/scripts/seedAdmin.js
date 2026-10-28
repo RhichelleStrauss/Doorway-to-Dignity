@@ -7,7 +7,7 @@ const User = require("../models/User");
 
 const ADMIN = {
   fullName: "Admin",
-  email: "rhichelle.strauss@gmail.com",
+  email: "rhichelle.strauss@icloud.com",
   phone: "0000000000",
   password: "ChangeMe123!",
 };

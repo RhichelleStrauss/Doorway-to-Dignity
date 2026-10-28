@@ -84,6 +84,10 @@ exports.createEvent = async (req, res) => {
     if (!title || !location || !start || !end || !roles?.length) {
       return res.status(400).json({ message: "Please fill in all required fields." });
     }
+        if (!(new Date(end) > new Date(start))) {
+      return res.status(400).json({ message: "The end time must be after the start time." });
+    }
+
     const event = await Event.create({ title, description, image, location, start, end, roles });
  res.status(201).json(event);
   } catch (err) {
@@ -106,6 +110,28 @@ exports.cancelSignup = async (req, res) => {
     if (!removed) return res.status(404).json({ message: "You're not signed up for this event." });
 
     res.json({ message: "Your sign-up has been cancelled." });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong. Please try again." });
+  }
+};
+
+
+exports.eventSignups = async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({ message: "Event not found." });
+    }
+
+    const signups = await Signup.find({ event: req.params.id })
+      .populate("user", "fullName")
+      .lean();
+
+    res.json(
+      signups
+        .filter((s) => s.user)
+        .map((s) => ({ _id: s._id, role: s.role, fullName: s.user.fullName }))
+    );
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Something went wrong. Please try again." });

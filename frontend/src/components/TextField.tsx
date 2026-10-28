@@ -8,7 +8,7 @@ type TextFieldProps = {
     label: string;
     id: string;
     placeholder?: string;
-    type?: "text" | "email" | "password" | "tel";
+    type?: "text" | "email" | "password" | "tel" | "date" | "time";
     state?: "default" | "error";
     multiline?: boolean;
     value?: string;
@@ -18,7 +18,7 @@ type TextFieldProps = {
 };
 
 const states = {
-  default: "border-topaz-blue-700 focus:border-primary-topaz-blue-500 focus:ring-4 focus:ring-primary-topaz-blue-500/30 focus:outline-none",
+  default: "border-topaz-blue-700 not-placeholder-shown:border-primary-topaz-blue-500 not-placeholder-shown:bg-topaz-blue-100 focus:border-primary-topaz-blue-500 focus:ring-4 focus:ring-primary-topaz-blue-500/30 focus:outline-none",
   error: "border-error focus:border-error focus:ring-4 focus:ring-error/30 focus:outline-none",
 };
 
@@ -31,7 +31,7 @@ function TextField({ label, id, placeholder, type = "text", state = "default", m
 
 
 
-const shared = `w-full rounded-[14px] border-[1.5px] bg-transparent px-[18px] text-[15px] placeholder:text-gunmetal-grey-400 ${states[state]}`;
+const shared = `w-full rounded-[14px] border-[1.5px] bg-transparent px-[18px] text-[15px] text-topaz-blue-800 placeholder:text-gunmetal-grey-400 ${states[state]}`;
 
     return(
         
@@ -50,7 +50,7 @@ const shared = `w-full rounded-[14px] border-[1.5px] bg-transparent px-[18px] te
   <textarea
     id={id}
     rows={5}
-    placeholder={placeholder}
+    placeholder={placeholder || " "}
     className={`textarea resize-none py-3 ${shared}`}
     value={value}
     onChange={(e) => onChange?.(e.target.value)}
@@ -61,7 +61,7 @@ const shared = `w-full rounded-[14px] border-[1.5px] bg-transparent px-[18px] te
     <input
       type={isPassword && showPassword ? "text" : type}
       id={id}
-      placeholder={placeholder}
+      placeholder={placeholder || " "}
       value={value}
       onChange={(e) => onChange?.(e.target.value)}
       className={`input h-[42px] ${isPassword ? "pr-12" : ""} ${shared}`}

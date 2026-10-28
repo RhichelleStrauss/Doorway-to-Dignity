@@ -5,7 +5,8 @@
 @plugin "daisyui/theme" {
   name: "dignity";
   default: true;
-  --color-primary: #13c0d1;          
+  color-scheme: light;
+  --color-primary: #13c0d1;         
   --color-primary-content: #084a50;  
   --color-base-100: #e9e3d5;        
   --color-base-content: #646976;     
@@ -159,6 +160,20 @@ as themes and how to import it so i got all the colours creatde in figma via thi
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover {
+  -webkit-text-fill-color: var(--color-topaz-blue-800) !important;
+  caret-color: var(--color-topaz-blue-800);
+  box-shadow: 0 0 0 1000px var(--color-topaz-blue-100) inset !important;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-topaz-blue-800) !important;
+  caret-color: var(--color-topaz-blue-800);
+  box-shadow: 0 0 0 1000px var(--color-topaz-blue-100) inset, 0 0 0 4px rgb(19 192 209 / 0.3) !important;
 }
 
 

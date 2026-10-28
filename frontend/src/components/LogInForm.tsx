@@ -34,7 +34,8 @@ function LogInForm() {
     }
 
     setUser(data);
-    navigate("/dashboard");
+    navigate(data.role === "admin" ? "/admin" : "/dashboard");
+
 
   }
 
@@ -42,7 +43,7 @@ function LogInForm() {
     <>
       <div className="flex w-full flex-col items-center justify-center px-6 py-12 md:px-12 lg:items-start lg:px-0 lg:py-12">
         <Card className="w-full max-w-[656px] p-6 md:p-9">
-          <div className="flex flex-col items-center gap-1.5 text-center">
+          <div className="flex flex-col items-start gap-1.5 text-left">
             <h2 className="text-[30px]/[36px] font-bold text-topaz-blue-800 lg:text-[36px]/[42px]">
               LOG IN
             </h2>
@@ -83,8 +84,8 @@ function LogInForm() {
 
             {error && <p className="text-[13px] text-error">{error}</p>}
 
-            <div className="mt-[9px] flex justify-center">
-              <Button type="submit" className="w-full max-w-[240px]">
+            <div className="mt-[9px] flex justify-end">
+              <Button type="submit" className="min-w-[150px] whitespace-nowrap">
                 {loading ? "Logging in…" : "Log in"}
               </Button>
             </div>

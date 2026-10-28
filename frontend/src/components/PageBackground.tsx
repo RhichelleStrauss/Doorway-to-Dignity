@@ -17,7 +17,7 @@ type PageBackgroundProps = {
 
 function PageBackground({ children }: PageBackgroundProps) {
   return (
-    <div className="relative overflow-hidden bg-soft-amber-100">
+    <div className="relative overflow-clip bg-soft-amber-100">
       {arcs.map(({ src, offset }) => (
         <img
           key={offset}

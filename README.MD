@@ -6,6 +6,10 @@
 
 ## Live Links
 
+**Presentation Video/Demo Link 
+https://drive.google.com/drive/folders/1uFLuPtIjSZ_roOVFSiJ-c1Os3ApYE9iC?usp=sharing
+
+
 | Platform | Frontend | Backend (API) |
 |---|---|---|
 | **Platform 1: Microsoft Azure (Platform 1 was used to collect Analytics** | [www.doorwaytodignityow251169.co.za](https://www.doorwaytodignityow251169.co.za/) | Azure App Service | Static Web App | Azure Web App

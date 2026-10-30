@@ -5,9 +5,14 @@ const Signup = require("../models/Signup");
 
 exports.listEvents = async (req, res) => {
   try {
+    //events that have yet to end, by soonest
     const events = await Event.find({ end: mongoose.trusted({ $gte: new Date() }) }).sort({ start: 1 }).lean();
 
-    
+    //count signups per event and role n one query instead of one query per event
+    //aggregate list of steps mongodb runs in database
+    //match works like fiter
+    //group puts matching docs together
+    //couny adds 1 for every doc so counts them
        const counts = await Signup.aggregate([
       { $match: { event: { $in: events.map((e) => e._id) } } },
       { $group: { _id: { event: "$event", role: "$role" }, count: { $sum: 1 } } },
@@ -69,6 +74,7 @@ exports.signUp = async (req, res) => {
     await Signup.create({ user: req.user._id, event: event._id, role });
     res.status(201).json({ message: "You're signed up!" });
   } catch (err) {
+    //block duplicates
     if (err.code === 11000) {
       return res.status(400).json({ message: "You're already signed up for this event." });
     }

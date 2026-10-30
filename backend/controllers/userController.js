@@ -40,7 +40,7 @@ exports.changePassword = async (req, res) => {
     if (newPassword.length < 8) {
       return res.status(400).json({ message: "Your new password needs at least 8 characters." });
     }
-
+//need current password to change password 
     const matches = await bcrypt.compare(currentPassword, req.user.password);
     if (!matches) return res.status(400).json({ message: "Your current password is incorrect." });
 

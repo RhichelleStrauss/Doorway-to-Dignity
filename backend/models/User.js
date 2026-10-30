@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     phone: { type: String, required: true, trim: true },
     password: { type: String, required: true },
+    //enum only these are allowed as roleea
     role: { type: String, enum: ["volunteer", "admin"], default: "volunteer" },
         preferredRole: { type: String, trim: true, default: "" },
 

@@ -1,6 +1,7 @@
 const jwt  = require('jsonwebtoken');
 const User = require('../models/User');
 
+//looks at token before protected routs, looks at login cookie and puts user on req user
 const verifyToken = async (req, res, next) => {
     
   try {
@@ -9,7 +10,8 @@ const verifyToken = async (req, res, next) => {
       return res.status(401).json({ message: 'Not logged in.' });
     }
 
-
+//no local storasge storing key thingy
+//i will refine comments i preomise
      const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
      const user = await User.findById(decoded.id);

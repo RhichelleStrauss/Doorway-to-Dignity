@@ -21,9 +21,12 @@ exports.register = async (req, res) => {
         if (existing) {
             return res.status(400).json({ message: 'Email already in use' });
         }
-
+//no storing real password we like security
+//bcrypt hashes password
         const hashedPassword = await bcrypt.hash(password, 12);
 
+        //volunteer is default role
+        //admin made with seed
         await User.create({
             fullName: fullName.trim(),
             email: cleanEmail,
@@ -44,7 +47,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     try {
                 const { email, password } = req.body;
-
+//doesnt specify which is wrong - email or password
         if (!email || !password) {
             return res.status(400).json({ message: 'Please provide email and password' });
         }
@@ -66,8 +69,10 @@ exports.login = async (req, res) => {
         );
 
         res.cookie('token', token, {
+            //js cant read
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
+            //not sent from other sites
             sameSite: 'strict',
             maxAge: 24 * 60 * 60 * 1000
         });

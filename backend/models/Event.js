@@ -8,6 +8,7 @@ const EventSchema = new mongoose.Schema(
     location: { type: String, required: true, trim: true },
     start: { type: Date, required: true },
     end: { type: Date, required: true },
+    //each role hhas a numeber of spots
       roles: {
       type: [
         {

@@ -78,21 +78,21 @@ as themes and how to import it so i got all the colours creatde in figma via thi
   --color-warning-text: #291400;
   --color-warning-frame: #f07400;
 
-  /* Other styles */
+
   --color-kinda-white: #fffafa;
 
-  /* Not Figma colour styles (from the brand spec / variables) */
-  --color-cream: #fdf3de;      /* text on teal and on photos */
-  --color-card: #f8f6f2d9;     /* cards and panels (85%) */
-  --color-row: #fffafa;        /* list rows inside cards */
-  --color-error: #b3261e;      /* log out, delete, cancel */
 
-  /* Calendar dots */
+  --color-cream: #fdf3de;      
+  --color-card: #f8f6f2d9;    
+  --color-row: #fffafa;        
+  --color-error: #b3261e;      
+
+  
   --color-cal-full: #ff6060;
   --color-cal-needed: #06c76f;
   --color-cal-passed: #878787;
 
-  /* Type roles: use as text-hero, text-body, etc. */
+ 
   --text-hero: 72px;
   --text-hero--line-height: 80px;
   --text-hero--font-weight: 700;

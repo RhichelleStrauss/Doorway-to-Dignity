@@ -3,3 +3,4 @@ node_modules
 
 test.http
 scripts/seedEvents.js
+scripts/seedAdmin.js
